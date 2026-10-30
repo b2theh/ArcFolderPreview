@@ -9,11 +9,21 @@
     --arc-folder-muted: light-dark(#77777c, #8e8e93);
     --arc-folder-line: light-dark(rgb(0 0 0 / 0.15), rgb(255 255 255 / 0.19));
     --arc-folder-hover: light-dark(rgb(0 0 0 / 0.06), rgb(255 255 255 / 0.075));
-    --panel-background: var(--arc-folder-surface) !important;
-    --panel-color: var(--arc-folder-text) !important;
+    --panel-background-color: var(--arc-folder-surface) !important;
+    --panel-text-color: var(--arc-folder-text) !important;
     --panel-border-color: var(--arc-folder-line) !important;
     --panel-border-radius: var(--arc-folder-radius) !important;
     --panel-padding: 0 !important;
+    /* Zen gives [nonnative] panels a native macOS menu frame. Draw the
+       surface only on ::part(content), so the two corner shapes cannot overlap. */
+    appearance: none !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: var(--arc-folder-radius) !important;
+    corner-shape: round !important;
+    box-shadow: none !important;
+    -moz-window-shadow: none !important;
     color-scheme: var(--toolbar-color-scheme);
     width: var(--arc-folder-width) !important;
     max-width: calc(100vw - 24px) !important;
@@ -28,8 +38,16 @@
     overflow: hidden !important;
     border: 1px solid var(--arc-folder-line) !important;
     border-radius: var(--arc-folder-radius) !important;
+    corner-shape: round !important;
     background: var(--arc-folder-surface) !important;
-    box-shadow: 0 12px 32px rgb(0 0 0 / 0.22) !important;
+    box-shadow: none !important;
+  }
+
+  /* Zen keeps [open] on the popup's anchor until the preview closes.
+     :hover alone disappears when the pointer moves into the popup. */
+  zen-folder > .tab-group-label-container[open]::before {
+    background-color: var(--tab-background-color-hover, var(--zen-toolbar-element-bg-hover)) !important;
+    border-radius: 11px !important;
   }
 
   #zen-folder-tabs-popup .tabs-list-header {
