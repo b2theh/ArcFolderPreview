@@ -1,0 +1,172 @@
+/* Arc Folder Preview — native Zen 1.24b folder hover panel. */
+@-moz-document url("chrome://browser/content/browser.xhtml") {
+  #zen-folder-tabs-popup {
+    --arc-folder-width: 240px;
+    --arc-folder-radius: 12px;
+    --arc-folder-row-height: 45px;
+    --arc-folder-surface: light-dark(#f7f6f6, #18181b);
+    --arc-folder-text: light-dark(#343438, #ceced0);
+    --arc-folder-muted: light-dark(#77777c, #8e8e93);
+    --arc-folder-line: light-dark(rgb(0 0 0 / 0.15), rgb(255 255 255 / 0.19));
+    --arc-folder-hover: light-dark(rgb(0 0 0 / 0.06), rgb(255 255 255 / 0.075));
+    --panel-background: var(--arc-folder-surface) !important;
+    --panel-color: var(--arc-folder-text) !important;
+    --panel-border-color: var(--arc-folder-line) !important;
+    --panel-border-radius: var(--arc-folder-radius) !important;
+    --panel-padding: 0 !important;
+    color-scheme: var(--toolbar-color-scheme);
+    width: var(--arc-folder-width) !important;
+    max-width: calc(100vw - 24px) !important;
+    color: var(--arc-folder-text) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+  }
+
+  #zen-folder-tabs-popup::part(content) {
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 1px solid var(--arc-folder-line) !important;
+    border-radius: var(--arc-folder-radius) !important;
+    background: var(--arc-folder-surface) !important;
+    box-shadow: 0 12px 32px rgb(0 0 0 / 0.22) !important;
+  }
+
+  #zen-folder-tabs-popup .tabs-list-header {
+    box-sizing: border-box !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    gap: 10px !important;
+    min-height: 48px !important;
+    margin: 0 !important;
+    padding: 0 13px !important;
+    border-bottom: 1px solid var(--arc-folder-line) !important;
+  }
+
+  #zen-folder-tabs-popup .zen-folder-tabs-list-search-icon {
+    flex: 0 0 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    fill: var(--arc-folder-muted) !important;
+  }
+
+  #zen-folder-tabs-popup #zen-folder-tabs-list-search {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    width: 0 !important;
+    min-height: 32px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--arc-folder-text) !important;
+    font: inherit !important;
+    caret-color: light-dark(#006eff, #0a84ff) !important;
+  }
+
+  #zen-folder-tabs-popup #zen-folder-tabs-list-search::placeholder {
+    color: var(--arc-folder-muted) !important;
+    opacity: 0.65 !important;
+  }
+
+  #zen-folder-tabs-popup .zen-folder-tabs-list-scrollbox {
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #zen-folder-tabs-popup #zen-folder-tabs-list {
+    box-sizing: border-box !important;
+    min-height: 0 !important;
+    max-height: calc(6 * var(--arc-folder-row-height) + 8px) !important;
+    margin: 0 !important;
+    padding: 4px 3px !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: light-dark(#bababe, #55555b) transparent !important;
+  }
+
+  #zen-folder-tabs-popup .folders-tabs-list-item {
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 5px !important;
+  }
+
+  #zen-folder-tabs-popup .folders-tabs-list-item-content {
+    box-sizing: border-box !important;
+    height: var(--arc-folder-row-height) !important;
+    min-height: var(--arc-folder-row-height) !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 4px 8px !important;
+    border-radius: 5px !important;
+    background: transparent !important;
+  }
+
+  #zen-folder-tabs-popup .folders-tabs-list-item[selected] .folders-tabs-list-item-content {
+    background: var(--arc-folder-hover) !important;
+  }
+
+  #zen-folder-tabs-popup .folders-tabs-list-item-icon {
+    flex: 0 0 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+  }
+
+  #zen-folder-tabs-popup .folders-tabs-list-item-labels {
+    min-width: 0 !important;
+    gap: 1px !important;
+    color: inherit !important;
+  }
+
+  #zen-folder-tabs-popup :is(.folders-tabs-list-item-label, .tab-list-item-secondary-label) {
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    font-family: inherit !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+  }
+
+  #zen-folder-tabs-popup .folders-tabs-list-item-label {
+    color: var(--arc-folder-text) !important;
+    font-size: 14px !important;
+    line-height: 17px !important;
+  }
+
+  #zen-folder-tabs-popup .tab-list-item-secondary-label {
+    color: var(--arc-folder-muted) !important;
+    font-size: 12px !important;
+    line-height: 15px !important;
+  }
+
+  #zen-folder-tabs-popup #zen-folder-tabs-search-no-results {
+    color: var(--arc-folder-muted) !important;
+    font: inherit !important;
+  }
+
+  @media (prefers-contrast) {
+    #zen-folder-tabs-popup {
+      --arc-folder-surface: Canvas;
+      --arc-folder-text: CanvasText;
+      --arc-folder-muted: CanvasText;
+      --arc-folder-line: CanvasText;
+      --arc-folder-hover: Highlight;
+    }
+    #zen-folder-tabs-popup .folders-tabs-list-item[selected] :is(.folders-tabs-list-item-label, .tab-list-item-secondary-label) {
+      color: HighlightText !important;
+    }
+  }
+}

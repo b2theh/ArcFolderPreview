@@ -1,0 +1,24 @@
+{
+  "id": "arc-folder-preview",
+  "author": "b2theh",
+  "name": "Arc Folder Preview",
+  "description": "Arc-inspired native folder hover previews with balanced spacing, readable titles and timestamps, and rounded corners.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/b2theh/ArcFolderPreview",
+  "readme": "https://github.com/b2theh/ArcFolderPreview/blob/main/README.md",
+  "createdAt": "2026-10-30",
+  "updatedAt": "2026-10-30T00:00:00Z",
+  "js": true,
+  "scripts": {
+    "preview.uc.js": {
+      "name": "Arc Folder Preview Subtitles",
+      "description": "Remove the repeated folder name while preserving Zen's native relative time.",
+      "include": ["chrome://browser/content/browser.xhtml"]
+    }
+  },
+  "style": {
+    "chrome": "chrome.css"
+  },
+  "tags": ["Folders", "Minimal", "Arc"],
+  "fork": ["zen"]
+}
