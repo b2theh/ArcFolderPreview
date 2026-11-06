@@ -14,17 +14,20 @@
     --panel-border-color: var(--arc-folder-line) !important;
     --panel-border-radius: var(--arc-folder-radius) !important;
     --panel-padding: 0 !important;
-    /* Zen gives [nonnative] panels a native macOS menu frame. Draw the
-       surface only on ::part(content), so the two corner shapes cannot overlap. */
+    /* Keep the popup window opaque as well as its shadow content. A transparent
+       host can expose the page when macOS recomposites the popup. Disable the
+       native frame; only ::part(content) draws a border. */
     appearance: none !important;
-    background: transparent !important;
+    background: var(--arc-folder-surface) !important;
     border: none !important;
     outline: none !important;
     border-radius: var(--arc-folder-radius) !important;
     corner-shape: round !important;
     box-shadow: none !important;
     -moz-window-shadow: none !important;
-    color-scheme: var(--toolbar-color-scheme);
+    /* Follow Zen's toolbar theme (including workspace overrides), with the
+       system preference as a fallback. Re-evaluates while the popup is open. */
+    color-scheme: var(--toolbar-color-scheme, light dark) !important;
     width: var(--arc-folder-width) !important;
     max-width: calc(100vw - 24px) !important;
     color: var(--arc-folder-text) !important;
@@ -34,6 +37,7 @@
   }
 
   #zen-folder-tabs-popup::part(content) {
+    color-scheme: inherit !important;
     padding: 0 !important;
     overflow: hidden !important;
     border: 1px solid var(--arc-folder-line) !important;

@@ -3,11 +3,11 @@
   "author": "b2theh",
   "name": "Arc Folder Preview",
   "description": "Arc-inspired native folder hover previews with balanced spacing, readable titles and timestamps, and rounded corners.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/b2theh/ArcFolderPreview",
   "readme": "https://github.com/b2theh/ArcFolderPreview/blob/main/README.md",
   "createdAt": "2026-10-30",
-  "updatedAt": "2026-10-30T20:24:33Z",
+  "updatedAt": "2026-11-06T08:44:07Z",
   "js": true,
   "scripts": {
     "preview.uc.js": {

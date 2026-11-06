@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           Arc Folder Preview
-// @version        1.0.1
+// @version        1.0.2
 // @description    Show only native relative time in folder preview subtitles.
 // @include        chrome://browser/content/browser.xhtml
 // ==/UserScript==
